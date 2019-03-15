@@ -65,8 +65,193 @@ def test_pid(P = 0.2,  I = 0.0, D= 0.0, L=100):
         output = pid.output
         if pid.SetPoint > 0:
             feedback += (output - (1/i))
+        """" Env 0: some steps are full of noise, each step = 100
         if i>9:
             pid.SetPoint = 1
+        if i>100:
+            pid.SetPoint = 2
+        if i>200:
+            #pid.SetPoint = 2 + np.random.normal(mu_0,sigma_0,1)
+            pid.SetPoint = 4 + np.random.normal(mu_0,sigma_0,1)
+        if i>300:
+            pid.SetPoint = 7
+        if i>400:
+            pid.SetPoint = 11
+        if i>500:
+            pid.SetPoint = 16 + np.random.normal(mu_1,sigma_1,1)
+        if i>600:
+            pid.SetPoint = 15
+            #pid.SetPoint = 8 + abs(np.random.normal(mu_1,sigma_1,1))
+        if i>700:
+            pid.SetPoint = 13
+        if i>800:
+            #pid.SetPoint = 7 + (-1)*abs(np.random.normal(mu_2,sigma_2,1))
+            pid.SetPoint = 10 + np.random.normal(mu_2,sigma_2,1)
+        if i>900:
+            pid.SetPoint = 6
+        if i>1000:
+            #pid.SetPoint = 4 + np.random.normal(mu_3,sigma_3,1)
+            pid.SetPoint = 1 + np.random.normal(mu_3,sigma_3,1)
+        if i>1100:
+            pid.SetPoint = 6
+        if i>1200:
+            pid.SetPoint = 10
+        if i>1300:
+            pid.SetPoint = 13 + np.random.normal(mu_4,sigma_4,1)
+        if i>1400:
+            #pid.SetPoint = 2 + np.random.normal(mu_0,sigma_0,1)
+            pid.SetPoint = 15
+        if i>1500:
+            pid.SetPoint = 16
+        if i>1600:
+            pid.SetPoint = 11
+        if i>1700:
+            pid.SetPoint = 7 + np.random.normal(mu_5,sigma_5,1)
+        if i>1800:
+            pid.SetPoint = 3
+            #pid.SetPoint = 8 + abs(np.random.normal(mu_1,sigma_1,1))
+        if i>1900:
+            pid.SetPoint = 2
+        """
+
+        """Env 1: some steps contain noise ( 100, 100(noise), 100), each step = 100
+        if i > 9:
+            pid.SetPoint = 1
+        if i > 100:
+            pid.SetPoint = 2
+        if i > 200:
+            pid.SetPoint = 2 + np.random.normal(mu_0,sigma_0,1)
+            #pid.SetPoint = 2
+        if i > 300:
+            pid.SetPoint = 2
+        if i > 400:
+            pid.SetPoint = 4
+        if i > 500:
+            pid.SetPoint = 7
+        if i > 600:
+            pid.SetPoint = 11
+        if i > 700:
+            pid.SetPoint = 16
+        if i > 800:
+            pid.SetPoint = 16 + np.random.normal(mu_2, sigma_2, 1)
+            #pid.SetPoint = 16
+        if i > 900:
+            pid.SetPoint = 16
+        if i > 1000:
+            pid.SetPoint = 15
+        if i > 1100:
+            pid.SetPoint = 13
+        if i > 1200:
+            pid.SetPoint = 10
+        if i > 1300:
+            pid.SetPoint = 10 + np.random.normal(mu_4, sigma_4, 1)
+            #pid.SetPoint = 10
+        if i > 1400:
+            pid.SetPoint = 10
+        if i > 1500:
+            pid.SetPoint = 6
+        if i > 1600:
+            pid.SetPoint = 1
+        if i > 1700:
+            pid.SetPoint = 1 + np.random.normal(mu_5, sigma_5, 1)
+            #pid.SetPoint = 1
+        if i > 1800:
+            pid.SetPoint = 1
+        if i > 1900:
+            pid.SetPoint = 2
+        """
+        """Env 2: some steps contain noise ( 50, 50(noise),50), each step = 50
+        if i > 9:
+            pid.SetPoint = 1
+        if i > 100:
+            pid.SetPoint = 2
+        if i > 150:
+            pid.SetPoint = 2 + np.random.normal(mu_0, sigma_0, 1)
+           # pid.SetPoint = 2
+        if i > 200:
+            pid.SetPoint = 2
+        if i > 250:
+            pid.SetPoint = 4
+        if i > 300:
+            pid.SetPoint = 7
+        if i > 350:
+            pid.SetPoint = 11
+        if i > 400:
+            pid.SetPoint = 16
+        if i > 450:
+            pid.SetPoint = 16 + np.random.normal(mu_2, sigma_2, 1)
+            # pid.SetPoint = 16
+        if i > 500:
+            pid.SetPoint = 16
+        if i > 550:
+            pid.SetPoint = 15
+        if i > 600:
+            pid.SetPoint = 13
+        if i > 650:
+            pid.SetPoint = 10
+        if i > 700:
+            pid.SetPoint = 10 + np.random.normal(mu_4, sigma_4, 1)
+            # pid.SetPoint = 10
+        if i > 750:
+            pid.SetPoint = 10
+        if i > 800:
+            pid.SetPoint = 6
+        if i > 850:
+            pid.SetPoint = 1
+        if i > 900:
+            pid.SetPoint = 1 + np.random.normal(mu_5, sigma_5, 1)
+            # pid.SetPoint = 1
+        if i > 950:
+            pid.SetPoint = 1
+        if i > 1000:
+            pid.SetPoint = 2
+        """
+        #Env 3: some steps contain noise ( 50, 50(noise),50), each step = 50， each step only up/down up to 1
+        if i > 9:
+            pid.SetPoint = 1
+        if i > 100:
+            pid.SetPoint = 2
+        if i > 150:
+            #pid.SetPoint = 2 + np.random.normal(mu_0, sigma_0, 1)
+            pid.SetPoint = 2
+        if i > 200:
+            pid.SetPoint = 2
+        if i > 250:
+            pid.SetPoint = 3
+        if i > 300:
+            pid.SetPoint = 4
+        if i > 350:
+            pid.SetPoint = 5
+        if i > 400:
+            pid.SetPoint = 6
+        if i > 450:
+            #pid.SetPoint = 6 + np.random.normal(mu_2, sigma_2, 1)
+            pid.SetPoint = 6
+        if i > 500:
+            pid.SetPoint = 6
+        if i > 550:
+            pid.SetPoint = 5
+        if i > 600:
+            pid.SetPoint = 4
+        if i > 650:
+            pid.SetPoint = 3
+        if i > 700:
+            #pid.SetPoint = 3 + np.random.normal(mu_4, sigma_4, 1)
+            pid.SetPoint = 3
+        if i > 750:
+            pid.SetPoint = 3
+        if i > 800:
+            pid.SetPoint = 2
+        if i > 850:
+            pid.SetPoint = 1
+        if i > 900:
+            pid.SetPoint = 1 + np.random.normal(mu_5, sigma_5, 1)
+            # pid.SetPoint = 1
+        if i > 950:
+            pid.SetPoint = 1
+        if i > 1000:
+            pid.SetPoint = 2
+            
         time.sleep(0.02)
 
         feedback_list.append(feedback)
